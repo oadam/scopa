@@ -14,23 +14,18 @@ public class Carte
     public int valeur;
     public Couleur couleur;
     private static Carte paquet[][];
-    private static boolean paquetConstruit = false;
-
+    static {
+    	paquet = new Carte[10][4];
+    	for(int i = 0; i < 10; i++)
+    	{
+    		paquet[i][0] = new Carte(i + 1, Couleur.carreau);
+    		paquet[i][1] = new Carte(i + 1, Couleur.coeur);
+    		paquet[i][2] = new Carte(i + 1, Couleur.pique);
+    		paquet[i][3] = new Carte(i + 1, Couleur.trefle);
+    	}
+    }
     public static Carte obtenirCarte(int a, Couleur couleur)
     {
-        if(!paquetConstruit)
-        {
-            paquet = new Carte[10][4];
-            for(int i = 0; i < 10; i++)
-            {
-                paquet[i][0] = new Carte(i + 1, Couleur.carreau);
-                paquet[i][1] = new Carte(i + 1, Couleur.coeur);
-                paquet[i][2] = new Carte(i + 1, Couleur.pique);
-                paquet[i][3] = new Carte(i + 1, Couleur.trefle);
-            }
-
-            paquetConstruit = true;
-        }
         int indiceCouleur;
         switch(couleur)
         {
