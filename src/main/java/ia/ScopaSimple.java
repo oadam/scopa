@@ -93,7 +93,7 @@ public class ScopaSimple
 
     private void jouer(Joueur joueur, Carte carte)
     {
-        if(carte.valeur == 1)
+        if(carte.getValeur() == 1)
         {
             jouerPourDeBon(joueur, carte, central.clone());
         } else
@@ -104,7 +104,7 @@ public class ScopaSimple
             while(iterator.hasNext()) 
             {
                 Tas element = (Tas)iterator.next();
-                if(element.somme() != carte.valeur)
+                if(element.somme() != carte.getValeur())
                 {
                     continue;
                 }
@@ -147,7 +147,7 @@ public class ScopaSimple
             central.removeAll(ramasse);
             joueur.ramassees.add(carte);
             joueur.ramassees.addAll(ramasse);
-            if(central.isEmpty() && carte.valeur != 1)
+            if(central.isEmpty() && carte.getValeur() != 1)
             {
                 joueur.nombreDeScopa++;
             }

@@ -394,7 +394,7 @@ public class Scopa extends AbstractAction
 		for(Iterator<?> iterator = ordi.jeu.iterator(); iterator.hasNext();)
 		{
 			Carte carte = (Carte)iterator.next();
-			if(carte.valeur == 1)
+			if(carte.getValeur() == 1)
 			{
 				aEssayer.add(new DoubletAEssayer(carte, central.clone()));
 			} else
@@ -405,7 +405,7 @@ public class Scopa extends AbstractAction
 				while(iterator1.hasNext()) 
 				{
 					Tas element = (Tas)iterator1.next();
-					if(element.somme() != carte.valeur)
+					if(element.somme() != carte.getValeur())
 					{
 						continue;
 					}
@@ -483,7 +483,7 @@ public class Scopa extends AbstractAction
 
 	private void jouerHomme(Carte carte)
 	{
-		if(carte.valeur == 1)
+		if(carte.getValeur() == 1)
 		{
 			jouerPourDeBon(homme, carte, central.clone());
 		} else
@@ -494,7 +494,7 @@ public class Scopa extends AbstractAction
 			while(iterator.hasNext()) 
 			{
 				Tas element = (Tas)iterator.next();
-				if(element.somme() != carte.valeur)
+				if(element.somme() != carte.getValeur())
 				{
 					continue;
 				}
@@ -542,7 +542,7 @@ public class Scopa extends AbstractAction
 			central.removeAll(ramasse);
 			joueur.ramassees.add(carte);
 			joueur.ramassees.addAll(ramasse);
-			if(central.isEmpty() && carte.valeur != 1)
+			if(central.isEmpty() && carte.getValeur() != 1)
 			{
 				joueur.nombreDeScopa++;
 				booleanScopa = true;

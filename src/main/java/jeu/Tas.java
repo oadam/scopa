@@ -130,8 +130,8 @@ public class Tas extends LinkedList<Carte>
         for(Iterator<?> iterator = iterator(); iterator.hasNext();)
         {
             Carte carte = (Carte)iterator.next();
-            int valeur = carte.valeur;
-            if(carte.couleur == Couleur.carreau)
+            int valeur = carte.getValeur();
+            if(carte.getCouleur() == Couleur.carreau)
             {
                 carreau++;
                 if(valeur == 7)
@@ -184,8 +184,8 @@ public class Tas extends LinkedList<Carte>
         for(Iterator<?> iterator = iterator(); iterator.hasNext();)
         {
             Carte carte = (Carte)iterator.next();
-            int valeur = carte.valeur;
-            if(carte.couleur == Couleur.carreau)
+            int valeur = carte.getValeur();
+            if(carte.getCouleur() == Couleur.carreau)
             {
                 carreau++;
                 if(valeur == 7)
@@ -211,7 +211,7 @@ public class Tas extends LinkedList<Carte>
         int retour = 0;
         for(int i = 0; i < size(); i++)
         {
-            retour += ((Carte)get(i)).valeur;
+            retour += ((Carte)get(i)).getValeur();
         }
 
         return retour;

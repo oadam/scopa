@@ -11,8 +11,9 @@ import javax.swing.JLabel;
 public class Carte
 {
 
-    public int valeur;
-    public Couleur couleur;
+    private final int valeur;
+    private final Couleur couleur;
+    
     private static Carte paquet[][];
     static {
     	paquet = new Carte[10][4];
@@ -133,6 +134,14 @@ public class Carte
     {
         return new JLabel(obtenirImageGrisee());
     }
+
+	public int getValeur() {
+		return valeur;
+	}
+
+	public Couleur getCouleur() {
+		return couleur;
+	}
 
 
 }
